@@ -7,7 +7,7 @@ from selene.support.shared import browser
 class RegistrationPage:
 
     def open_form_page(self) -> None:
-        browser.open('/automation-practice-form')
+        browser.open('https://demoqa.com/automation-practice-form')
 
     def fill_first_name(self, value: str) -> None:
         browser.element('#firstName').type(value)
