@@ -45,7 +45,6 @@ class RegistrationPage:
         self.browser.element('#currentAddress').type(value)
 
     def fill_state_and_city(self, state: str, city: str) -> None:
-        self.browser.element("#state").perform(command.js.scroll_into_view)
         self.browser.element("#state").click()
         self.browser.element("#stateCity-wrapper").element(by.text(state)).click()
         self.browser.element("#city").click()
