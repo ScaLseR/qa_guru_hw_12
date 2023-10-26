@@ -45,10 +45,11 @@ class RegistrationPage:
         self.browser.element('#currentAddress').type(value)
 
     def fill_state_and_city(self, state: str, city: str) -> None:
-        self.browser.element("#state").perform(command.js.click)
-        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(state)).perform(command.js.click)
-        self.browser.element("#city").perform(command.js.click)
-        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(city)).perform(command.js.click)
+        self.browser.element('#submit').perform(command.js.scroll_into_view)
+        self.browser.element("#state").click()
+        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(state)).click()
+        self.browser.element("#city").click()
+        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(city)).click()
 
     def press_submit(self) -> None:
         self.browser.element('#submit').perform(command.js.click)
