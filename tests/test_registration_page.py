@@ -4,14 +4,15 @@ from qa_guru_hw_10.registration_page import RegistrationPage
 import allure
 
 
-def test_filling_and_send_form():
+def test_filling_and_send_form(setup_browser):
     allure.dynamic.title('Проверка формы регистрации: Student Registration Form')
     allure.dynamic.tag('Practice Form')
     allure.dynamic.severity(severity_level='Critical')
     allure.dynamic.feature('Регистрация студента')
     allure.dynamic.story('Создаем первую задачу Jenkins')
+    browser = setup_browser
 
-    registration_page = RegistrationPage()
+    registration_page = RegistrationPage(browser)
     with allure.step('Открываем страницу c формой регистрации'):
         registration_page.open_form_page()
 
