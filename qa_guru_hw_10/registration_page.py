@@ -9,7 +9,7 @@ class RegistrationPage:
         self.browser = browser
 
     def open_form_page(self) -> None:
-        self.browser.open('https://demoqa.com/automation-practice-form')
+        self.browser.open('/automation-practice-form')
 
     def fill_first_name(self, value: str) -> None:
         self.browser.element('#firstName').type(value)
