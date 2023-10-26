@@ -20,8 +20,9 @@ def setup_browser(request):
     }
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub", options=options)
-    browser.config.driver = driver
     browser.config.base_url = "https://demoqa.com"
+    browser.config.driver = driver
+
     yield browser
 
     attach.add_screenshot(browser)
