@@ -46,9 +46,9 @@ class RegistrationPage:
 
     def fill_state_and_city(self, state: str, city: str) -> None:
         self.browser.element("#state").perform(command.js.click)
-        self.browser.element("#stateCity-wrapper").element(by.text(state)).perform(command.js.click)
+        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(state)).perform(command.js.click)
         self.browser.element("#city").perform(command.js.click)
-        self.browser.element("#stateCity-wrapper").element(by.text(city)).perform(command.js.click)
+        self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(city)).perform(command.js.click)
 
     def press_submit(self) -> None:
         self.browser.element('#submit').perform(command.js.click)
