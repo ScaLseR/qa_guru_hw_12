@@ -1,6 +1,6 @@
 """Класс для страницы регистрации https://demoqa.com/automation-practice-form"""
 from pathlib import Path
-from selene import have, command, by
+from selene import have, command
 
 
 class RegistrationPage:
@@ -45,7 +45,7 @@ class RegistrationPage:
         self.browser.element('#currentAddress').type(value)
 
     def fill_state_and_city(self, state: str, city: str) -> None:
-        self.browser.element('#submit').perform(command.js.scroll_into_view)
+        self.browser.element("#state").perform(command.js.scroll_into_view)
         self.browser.element("#state").click()
         self.browser.all('[id^="react-select"][id*=option]').element_by(have.exact_text(state)).click()
         self.browser.element("#city").click()
