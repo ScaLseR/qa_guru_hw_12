@@ -10,6 +10,9 @@ class RegistrationPage:
 
     def open_form_page(self) -> None:
         self.browser.open('/automation-practice-form')
+        self.browser.config.driver.maximize_window()
+        self.browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(have.size_greater_than_or_equal(3))
+        self.browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
 
     def fill_first_name(self, value: str) -> None:
         self.browser.element('#firstName').type(value)
