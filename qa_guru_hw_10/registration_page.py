@@ -1,7 +1,6 @@
 """Класс для страницы регистрации https://demoqa.com/automation-practice-form"""
 from pathlib import Path
 from selene import have, command
-# from selene.support.shared import browser
 
 
 class RegistrationPage:
